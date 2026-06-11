@@ -1,0 +1,32 @@
+project:
+  name: house-price-prediction
+  version: 1.0.0
+
+data:
+  raw_data_path: data/raw/housing.csv
+  processed_data_path: data/processed/housing_processed.csv
+
+model:
+  model_path: data/models/model.pkl
+  preprocessor_path: data/models/preprocessor.pkl
+
+features:
+  numerical_features:
+    - longitude
+    - latitude
+    - housing_median_age
+    - total_rooms
+    - total_bedrooms
+    - population
+    - households
+    - median_income
+
+  categorical_features:
+    - ocean_proximity
+
+target:
+  name: median_house_value
+
+training:
+  test_size: 0.2
+  random_state: 42
