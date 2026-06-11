@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict House Price</title>
+</head>
+<body>
+    <h1>Predict House Price</h1>
+
+    <form action="/predict" method="post">
+
+        <label>Longitude</label><br>
+        <input type="number" step="any" name="longitude" required><br><br>
+
+        <label>Latitude</label><br>
+        <input type="number" step="any" name="latitude" required><br><br>
+
+        <label>Housing Median Age</label><br>
+        <input type="number" step="any" name="housing_median_age" required><br><br>
+
+        <label>Total Rooms</label><br>
+        <input type="number" step="any" name="total_rooms" required><br><br>
+
+        <label>Total Bedrooms</label><br>
+        <input type="number" step="any" name="total_bedrooms" required><br><br>
+
+        <label>Population</label><br>
+        <input type="number" step="any" name="population" required><br><br>
+
+        <label>Households</label><br>
+        <input type="number" step="any" name="households" required><br><br>
+
+        <label>Median Income</label><br>
+        <input type="number" step="any" name="median_income" required><br><br>
+
+        <label>Ocean Proximity</label><br>
+        <select name="ocean_proximity" required>
+            <option value="NEAR BAY">NEAR BAY</option>
+            <option value="<1H OCEAN">&lt;1H OCEAN</option>
+            <option value="INLAND">INLAND</option>
+            <option value="NEAR OCEAN">NEAR OCEAN</option>
+            <option value="ISLAND">ISLAND</option>
+        </select><br><br>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if result is defined %}
+        <h2>Predicted House Price: ${{ result }}</h2>
+    {% endif %}
+
+    {% if error is defined %}
+        <h2 style="color:red;">{{ error }}</h2>
+    {% endif %}
+
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>
